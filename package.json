@@ -1,0 +1,29 @@
+{
+  "name": "web_qr_bar_code_scaner",
+  "version": "1.0.0",
+  "description": "jassi's project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner.git"
+  },
+  "keywords": [
+    "jassi"
+  ],
+  "author": "jassi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner/issues"
+  },
+  "homepage": "https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "html5-qrcode": "^2.3.3",
+    "nodemon": "^2.0.20"
+  }
+}
