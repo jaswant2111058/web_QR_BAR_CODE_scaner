@@ -1,30 +1,24 @@
 {
-  "name": "web_qr_bar_code_scaner",
+  "name": "jaswant-codes",
   "version": "1.0.0",
-  "description": "jassi's project",
-  "main": "main.js",
+  "description": "Bingo ",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner.git"
+    "url": "git+https://github.com/jaswant2111058/jaswant-codes.git"
   },
-  "keywords": [
-    "jassi"
-  ],
   "author": "jassi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner/issues"
+    "url": "https://github.com/jaswant2111058/jaswant-codes/issues"
   },
-  "homepage": "https://github.com/jaswant2111058/web_QR_BAR_CODE_scaner#readme",
+  "homepage": "https://github.com/jaswant2111058/jaswant-codes#readme",
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "html5-qrcode": "^2.3.3",
-    "nodemon": "^2.0.20"
+    "express": "^4.18.2",
+    "socket.io": "^4.5.4"
   }
 }

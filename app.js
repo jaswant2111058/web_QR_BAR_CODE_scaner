@@ -1,42 +1,55 @@
 const express= require("express");
-const app = express();
-const port = process.env.PORT || 8000
+const app = express(); 
 const path = require("path");
-//require("./connection/conn");
-app.use(express.json());
+const port = process.env.PORT||5000;
+const static1 = path.join(__dirname,"./BINGO")
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
-//const student = require("./model/schema");
-const static1 = path.join(__dirname,"./scanner-webcam")
-const static2 = path.join(__dirname,"./scanner_image")
-//const static3 = path.join(__dirname,"./new registration")
+app.use(express.static(static1));
 
- app.use(express.static(static1));
-// app.use(express.static(static3));
- app.use(express.static(static2));
- 
+
+
+console.log("yes");
+io.on('connection',socket=>{
+    console.log(socket.id)
+    socket.on("num", num=>{
+        const data = {id:socket.id,num:num}
+      //  console.log(num,socket.id);
+        socket.broadcast.emit("data",data);
+})
+})  
+
+
  app.get("/",function(req,res){
+
+    
       
-    res.sendFile(static2+"/index.html");
-});
-app.get("/webcam",function(req,res){
-      
-    res.sendFile(static1+"/main.html");
+    res.sendFile(static1+"/index.html");
 });
 
-// app.get("/newregistration",function(req,res){
-      
-//     res.sendFile(static3+"/new_registration.html");
-// });
-// app.get("/registration", async (req,res) => {
+app.get("/player1",(req,res)=>
+{
+    res.sendFile(static1+"/jks.html");
+    
+})
+app.post("/player1",async(req,res)=>
+{       
+    
 
-//     try{
-//         const user = new  student(req.body);
-//         const adnew= await user.save();
-//         res.status(201).send(adnew);
-//     }catch(e){
-//         res.status(400).send(e);
-//     }
-// })
-app.listen(port, function(){
+    res.sendFile(static1+"/jks.html");  
+})
+
+ app.get("/player2",function(req,res){
+      
+     res.sendFile(static1+"/jks.html");
+//      
+ });
+ app.post("/player2",(req,res)=>
+{       
+    res.sendFile(static1+"/jks.html");  
+})
+
+http.listen(port, function(){
     console.log("Server is up");
 })
