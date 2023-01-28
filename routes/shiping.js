@@ -89,7 +89,7 @@ let unique = a.filter((item, i, ar) => ar.indexOf(item) === i);
     }
 })
 
-router.get("/shipmentuser/comodity",async (req,res)=>{
+router.post("/shipmentuser/comodity",async (req,res)=>{
     try{  
         let produc = await product.find({Category:req.body.Category})
         var data=[];
