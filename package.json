@@ -1,24 +1,29 @@
 {
-  "name": "jaswant-codes",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.0",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-google-oauth2": "^0.2.0",
+    "razorpay": "^2.8.4"
+  },
+  "name": "common-login-signup",
   "version": "1.0.0",
-  "description": "Bingo ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaswant2111058/jaswant-codes.git"
-  },
-  "author": "jassi",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jaswant2111058/jaswant-codes/issues"
-  },
-  "homepage": "https://github.com/jaswant2111058/jaswant-codes#readme",
-  "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.5.4"
-  }
+  "description": ""
 }

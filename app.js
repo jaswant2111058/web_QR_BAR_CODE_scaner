@@ -1,55 +1,32 @@
-const express= require("express");
-const app = express(); 
-const path = require("path");
+const express = require('express');
+const app = express();
+require('dotenv').config();
 const port = process.env.PORT||5000;
-const static1 = path.join(__dirname,"./BINGO")
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
+//require('./auth');
+const cors = require("cors")
+require("./connection/conn")
+app.set("view engine",'ejs');
+const path = require("path");
+const cookie = require("cookie-parser");
+app.use(cookie()); 
+const static1 = path.join(__dirname,"/views")
 app.use(express.static(static1));
+app.set("view engine", "ejs");
+const login =  require("./routes/login")
+//const google =  require("./routes/google")
+const main =  require("./routes/waremanage")
+const payment = require("./routes/payment");
+const bussiness = require('./routes/bussiness');
+const shiping = require('./routes/shiping');
+
+app.use(cors())
 
 
-
-console.log("yes");
-io.on('connection',socket=>{
-    console.log(socket.id)
-    socket.on("num", num=>{
-        const data = {id:socket.id,num:num}
-      //  console.log(num,socket.id);
-        socket.broadcast.emit("data",data);
-})
-})  
+app.use("/",login);
+app.use("/",payment);
+app.use("/",main);
+app.use("/",bussiness);
+app.use("/",shiping);
 
 
- app.get("/",function(req,res){
-
-    
-      
-    res.sendFile(static1+"/index.html");
-});
-
-app.get("/player1",(req,res)=>
-{
-    res.sendFile(static1+"/jks.html");
-    
-})
-app.post("/player1",async(req,res)=>
-{       
-    
-
-    res.sendFile(static1+"/jks.html");  
-})
-
- app.get("/player2",function(req,res){
-      
-     res.sendFile(static1+"/jks.html");
-//      
- });
- app.post("/player2",(req,res)=>
-{       
-    res.sendFile(static1+"/jks.html");  
-})
-
-http.listen(port, function(){
-    console.log("Server is up");
-})
+app.listen(port,()=>console.log("server is up....."));
